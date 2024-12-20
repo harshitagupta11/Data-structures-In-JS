@@ -97,6 +97,26 @@ class BstTree {
         helper(root)
         return res
     }
+
+    bfsTraversing(){
+        let res= []
+        let queue=[]
+            if(this.root=== null){
+                return;
+            }
+            queue.push(this.root)
+            while(queue.length){
+                let curr = queue.shift()
+                res.push(curr.val)
+                if(curr.left){
+                    queue.push(curr.left)
+                }
+                if(curr.right){
+                    queue.push(curr.right)
+                }
+            }
+            return res
+    }
 }
 
 let bst = new BstTree()
@@ -109,3 +129,4 @@ bst.makeTree(11)
 console.log(bst.preOrder(bst.root))
 console.log(bst.inOrder(bst.root))
 console.log(bst.postOrder(bst.root))
+console.log(bst.bfs(bst))
