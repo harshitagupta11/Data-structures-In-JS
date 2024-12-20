@@ -117,6 +117,25 @@ class BstTree {
             }
             return res
     }
+
+    minNode(root){
+        if(root===null){
+            return null
+        }else if(root.left===null){
+            return root.val
+        }else{
+            return this.minNode(root.left)
+        }
+    }
+    maxNode(root){
+        if(root===null){
+            return null
+        }else if(root.right===null){
+            return root.val
+        }else{
+            return this.minNode(root.right)
+        }
+    }
 }
 
 let bst = new BstTree()
@@ -124,9 +143,11 @@ bst.makeTree(20)
 bst.makeTree(10)
 bst.makeTree(30)
 bst.makeTree(11)
-// console.log(bst)
+console.log(bst)
+console.log(bst.minNode(bst.root))
+console.log(bst.maxNode(bst.root))
 // console.log(bst.searchNode(bst.root,40))
-console.log(bst.preOrder(bst.root))
-console.log(bst.inOrder(bst.root))
-console.log(bst.postOrder(bst.root))
-console.log(bst.bfs(bst))
+// console.log(bst.preOrder(bst.root))
+// console.log(bst.inOrder(bst.root))
+// console.log(bst.postOrder(bst.root))
+// console.log(bst.bfs(bst))
