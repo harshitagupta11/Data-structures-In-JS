@@ -40,6 +40,22 @@ class BstTree {
             }
         }
     }
+
+    searchNode(root,val){
+        if(root ===null){
+            return false;
+        }
+        else if(root.val===val){
+            return true; // mil gaya
+        }else if (val<root.val){
+            // left mein jayenge
+            return this.searchNode(root.left,val)
+        }else{
+            //right mein jayenge
+            console.log(root,58)
+            return this.searchNode(root.right,val)
+        }
+    }
 }
 
 let bst = new BstTree()
@@ -48,3 +64,4 @@ bst.makeTree(10)
 bst.makeTree(30)
 bst.makeTree(11)
 console.log(bst)
+console.log(bst.searchNode(bst.root,30))
