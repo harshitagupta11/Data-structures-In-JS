@@ -52,8 +52,15 @@ class BstTree {
             return this.searchNode(root.left,val)
         }else{
             //right mein jayenge
-            console.log(root,58)
             return this.searchNode(root.right,val)
+        }
+    }
+    // phele left side phir right
+    preOrder(root){
+        if(root){
+            console.log(root.val)
+            this.preOrder(root.left)
+            this.preOrder(root.right)
         }
     }
 }
@@ -63,5 +70,6 @@ bst.makeTree(20)
 bst.makeTree(10)
 bst.makeTree(30)
 bst.makeTree(11)
-console.log(bst)
-console.log(bst.searchNode(bst.root,30))
+// console.log(bst)
+// console.log(bst.searchNode(bst.root,40))
+bst.preOrder(bst.root)
