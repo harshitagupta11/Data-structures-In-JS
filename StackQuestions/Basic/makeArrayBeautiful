@@ -1,0 +1,29 @@
+/*Given an array of negative and non-negative integers. You have to make the array beautiful. An array is beautiful if two adjacent integers, arr[i] and arr[i+1] are either negative or non-negative. And you can do the following operation any number of times until the array becomes beautiful.
+
+ If two adjacent integers are different i.e. one of them is negative and other is non-negative, remove them.
+ Return the beautiful array after performing the above operation.*/
+
+function makeArrayBeautiful(arr){
+    let beautifulArray = [];
+    for(let num of arr){
+        if(beautifulArray.length==0){
+            beautifulArray.push(num);
+        }
+        else if(beautifulArray[beautifulArray.length-1]<=0 && num<=0 || beautifulArray[beautifulArray.length-1]>=0 && num>=0 ){
+            beautifulArray.push(num)
+
+        }else{
+            beautifulArray.pop();
+        }
+        
+    }
+
+    return beautifulArray
+
+
+
+}
+
+let arr = [6,-19,-9,4, -7, 10, -5];
+
+console.log(makeArrayBeautiful(arr));
